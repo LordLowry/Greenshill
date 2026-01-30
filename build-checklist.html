@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>House Build Checklist – Ireland</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background: #1f3a5f;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+.section {
+    background: white;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.08);
+}
+.section h2 {
+    background: #e9eef3;
+    padding: 15px;
+    margin: 0;
+    border-radius: 8px 8px 0 0;
+}
+.task {
+    display: grid;
+    grid-template-columns: 30px 1fr 180px;
+    gap: 10px;
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+    align-items: center;
+}
+.task:last-child {
+    border-bottom: none;
+}
+.task input[type="date"] {
+    padding: 4px;
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+}
+i {
+    margin-right: 8px;
+    color: #1f3a5f;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🏠 Self Build / New Build Checklist (Ireland)</h1>
+<p>Tick tasks as you complete them and enter completion dates</p>
+</header>
+
+<div class="container">
+
+<div class="section">
+<h2><i class="fa-solid fa-file-signature"></i> Planning & Design</h2>
+<div class="task"><input type="checkbox">Planning Permission Granted<input type="date"></div>
+<div class="task"><input type="checkbox">Construction (Builder’s) Drawings Complete<input type="date"></div>
+<div class="task"><input type="checkbox">Structural Engineer Design Complete<input type="date"></div>
+<div class="task"><input type="checkbox">Part L / BER Design Completed<input type="date"></div>
+<div class="task"><input type="checkbox">Tender Pack Prepared<input type="date"></div>
+</div>
+
+<div class="section">
+<h2><i class="fa-solid fa-helmet-safety"></i> Builder & Contracts</h2>
+<div class="task"><input type="checkbox">Builders Invited to Tender<input type="date"></div>
+<div class="task"><input type="checkbox">Builder Selected<input type="date"></div>
+<div class="task"><input type="checkbox">Building Contract Signed<input type="date"></div>
+<div class="task"><input type="checkbox">Start Date Agreed<input type="date"></div>
+</div>
+
+<div class="section">
+<h2><i class="fa-solid fa-building"></i> Building Control (BCMS)</h2>
+<div class="task"><input type="checkbox">Assigned Certifier Appointed<input type="date"></div>
+<div class="task"><input type="checkbox">Design Certifier Appointed<input type="date"></div>
+<div class="task"><input type="checkbox">Commencement Notice Submitted<input type="date"></div>
+<div class="task"><input type="checkbox">BCMS Validation Received<input type="date"></div>
+</div>
+
+<div class="section">
+<h2><i class="fa-solid fa-bolt"></i> Utilities & Services</h2>
+<div class="task"><input type="checkbox">ESB Connection Applied For<input type="date"></div>
+<div class="task"><input type="checkbox">Water Connection Applied For<input type="date"></div>
+<div class="task"><input type="checkbox">Wastewater System Installed<input type="date"></div>
+<div class="task"><input type="checkbox">Site Entrance Completed<input type="date"></div>
+</div>
+
+<div class="section">
+<h2><i class="fa-solid fa-house"></i> Construction Stages</h2>
+<div class="task"><input type="checkbox">Site Cleared<input type="date"></div>
+<div class="task"><input type="checkbox">Foundations Complete<input type="date"></div>
+<div class="task"><input type="checkbox">Walls Built<input type="date"></div>
+<div class="task"><input type="checkbox">Roof Complete<input type="date"></div>
+<div class="task"><input type="checkbox">Windows & Doors Installed<input type="date"></div>
+<div class="task"><input type="checkbox">First Fix Plumbing & Electrics<input type="date"></div>
+<div class="task"><input type="checkbox">Plastering Complete<input type="date"></div>
+<div class="task"><input type="checkbox">Second Fix Complete<input type="date"></div>
+</div>
+
+<div class="section">
+<h2><i class="fa-solid fa-leaf"></i> Energy & Testing</h2>
+<div class="task"><input type="checkbox">Airtightness Test Passed<input type="date"></div>
+<div class="task"><input type="checkbox">Ventilation Commissioned<input type="date"></div>
+<div class="task"><input type="checkbox">Final BER Completed<input type="date"></div>
+</div>
+
+<div class="section">
+<h2><i class="fa-solid fa-clipboard-check"></i> Completion</h2>
+<div class="task"><input type="checkbox">Snag List Completed<input type="date"></div>
+<div class="task"><input type="checkbox">Certificate of Compliance on Completion<input type="date"></div>
+<div class="task"><input type="checkbox">Final Drawdown<input type="date"></div>
+<div class="task"><input type="checkbox">Move In<input type="date"></div>
+</div>
+
+</div>
+
+<footer>
+<p>© Build Checklist – Ireland</p>
+</footer>
+
+<script>
+const inputs = document.querySelectorAll("input");
+
+inputs.forEach((input, index) => {
+    const savedValue = localStorage.getItem("field" + index);
+    if (savedValue !== null) {
+        if (input.type === "checkbox") input.checked = savedValue === "true";
+        else input.value = savedValue;
+    }
+
+    input.addEventListener("change", () => {
+        if (input.type === "checkbox") {
+            localStorage.setItem("field" + index, input.checked);
+        } else {
+            localStorage.setItem("field" + index, input.value);
+        }
+    });
+});
+</script>
+
+</body>
+</html>
